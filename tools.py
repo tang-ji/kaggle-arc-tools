@@ -13,10 +13,10 @@ def plot_task(task, task_solutions, i, t):
     plt.suptitle(f'Set #{i}, {t}:', fontsize=20, fontweight='bold', y=1)
     
     for j in range(num_train):     
-        plot_one(axs[0, j], j,'train', 'input')
-        plot_one(axs[1, j], j,'train', 'output')        
+        plot_one(axs[0, j], j,'train', 'input', task)
+        plot_one(axs[1, j], j,'train', 'output', task)        
     
-    plot_one(axs[0, j+1], 0, 'test', 'input')
+    plot_one(axs[0, j+1], 0, 'test', 'input', task)
 
     cmap = colors.ListedColormap(['#000000', '#0074D9', '#FF4136', '#2ECC40', '#FFDC00',
                                   '#AAAAAA', '#F012BE', '#FF851B', '#7FDBFF', '#870C25'])
@@ -43,7 +43,7 @@ def plot_task(task, task_solutions, i, t):
     print()
     
     
-def plot_one(ax, i, train_or_test, input_or_output):
+def plot_one(ax, i, train_or_test, input_or_output, task):
     cmap = colors.ListedColormap(['#000000', '#0074D9', '#FF4136', '#2ECC40', '#FFDC00',
                                   '#AAAAAA', '#F012BE', '#FF851B', '#7FDBFF', '#870C25'])
     norm = colors.Normalize(vmin=0, vmax=9)
